@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hospitalidée_CRM_Back_End.Migrations
 {
-    [DbContext(typeof(EtablissementContext))]
+    [DbContext(typeof(UniteLegaleContext))]
     [Migration("20201209160800_InitialCreate")]
     partial class InitialCreate
     {

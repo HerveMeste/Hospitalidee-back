@@ -7,6 +7,6 @@ namespace Hospitalidée_CRM_Back_End.Models
 {
     public class GovernmentApiJson
     {
-        public EtablissementJson etablissement { get; set; }
+        public UniteLegaleJson unite_legale { get; set; }
     }
 }

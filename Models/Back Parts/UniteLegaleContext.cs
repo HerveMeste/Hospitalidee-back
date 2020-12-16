@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hospitalidée_CRM_Back_End.Models
 {
-    public class EtablissementContext : DbContext
+    public class UniteLegaleContext : DbContext
     {
         public virtual DbSet<Etablissement> Etablissement { get; set; }
         public virtual DbSet<UniteLegale> UniteLegale { get; set; }

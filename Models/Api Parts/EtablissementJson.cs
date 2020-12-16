@@ -15,6 +15,5 @@ namespace Hospitalidée_CRM_Back_End.Models
         public string libelle_voie { get; set; }
         public string code_postal { get; set; }
         public string libelle_commune { get; set; }
-        public UniteLegaleJson unite_legale { get; set; }
     }
 }
