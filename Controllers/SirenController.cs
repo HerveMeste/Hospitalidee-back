@@ -16,7 +16,7 @@ namespace Hospitalidée_CRM_Back_End.Controllers
     public class SirenController : ControllerBase
     {
         [HttpGet]
-        public GovernmentApiJson GetEtablissement(string? siren)
+        public UniteLegaleJson GetEtablissement(string? siren)
         {
             if(siren == null)
             {
@@ -28,7 +28,36 @@ namespace Hospitalidée_CRM_Back_End.Controllers
             {
                 return null;
             }
-            return jsonGovernment;
+            UniteLegaleJson uniteLegaleJson = ConvertIntoResponse(jsonGovernment);
+            return uniteLegaleJson;
+
+        }
+        private UniteLegaleJson ConvertIntoResponse(GovernmentApiJson jsonGovernment)
+        {
+            UniteLegaleJson uniteLegaleJson = new UniteLegaleJson();
+            List<EtablissementJson> listEtablissementAPE = new List<EtablissementJson>();
+
+            uniteLegaleJson.denomination = jsonGovernment.unite_legale.denomination;
+            uniteLegaleJson.prenom_usuel = jsonGovernment.unite_legale.prenom_usuel;
+            uniteLegaleJson.nom = jsonGovernment.unite_legale.nom;
+            uniteLegaleJson.nomenclature_activite_principale = jsonGovernment.unite_legale.nomenclature_activite_principale;
+            uniteLegaleJson.siren = jsonGovernment.unite_legale.siren;
+            
+            foreach(EtablissementJson etablissement in jsonGovernment.unite_legale.etablissements)
+            {
+                string apeCode = "86";
+                jsonGovernment.unite_legale.etablissements.ToList();
+                
+                if(etablissement.activite_principale.Contains(apeCode))
+                {
+                    listEtablissementAPE.Add(etablissement);
+                    uniteLegaleJson.etablissements = listEtablissementAPE;
+                }
+            }
+
+            
+
+            return uniteLegaleJson;
         }
 
         readonly HttpClient client = new HttpClient();

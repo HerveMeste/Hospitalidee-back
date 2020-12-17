@@ -10,6 +10,7 @@ namespace Hospitalidée_CRM_Back_End.Models
         public string siren { get; set; }
         public string denomination { get; set; }
         public string nomenclature_activite_principale { get; set; }
+        public string message { get; set; }
         public IEnumerable<EtablissementJson> etablissements { get; set; }
     }
 }
